@@ -102,7 +102,7 @@
 
         // Enable pinch and rotate recognizers (disabled by default)
         pinchHammer.get('pinch').set({ enable: true });
-        rotateHammer.get('rotate').set({ enable: true, pointers: 1 });
+        rotateHammer.get('rotate').set({ enable: true });
         
         // Enable vertical for pan recognizer
         panHammer.get('pan').set({ direction: Hammer.DIRECTION_ALL, threshold: 0 });
@@ -127,7 +127,7 @@
         
         // Pan
         panHammer.on('pan', function(e) {
-            $('#pan-box').css('transition', 'transform .1s');
+            $('#pan-box').css('transition', 'transform .01s');
             $('#pan-box').css('transform', 'translate(' + e.deltaX + 'px, ' + e.deltaY + 'px)');
         });
         
