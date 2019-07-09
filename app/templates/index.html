@@ -85,38 +85,38 @@
 		</div>
 	</div>
 	<script> // your solution here
-        // Create instance and add tap, doubletap, press, horizontal pan/swipe recognizers
+        // Elements
+        var rotateBox = document.getElementByID("rotate-box"),
+            pinchBox = document.getElementByID("pinch-box"),
+            pressBox = document.getElementByID("press-box"),
+            panBox = document.getElementByID("pan-box"),
+            tapBox = document.getElementByID("tap-box"),
+            swipeBox = document.getElementByID("swipe-box");
+        // Hammer instances 
+        var rotateHammer = new Hammer(rotateBox),
+            pinchHammer = new Hammer(pinchBox),
+            pressHammer = new Hammer(pressBox),
+            panHammer = new Hammer(panBox),
+            tapHammer = new Hammer(tapBox),
+            swipeHammer = new Hammer(swipeBox);
         var hammertime = new Hammer(myElement, myOptions);
-        hammertime.on('pan', function(ev) {
-            console.log(ev);
-        });
-        hammertime.on('rotate', function(ev) {
-            console.log(ev);
-        });
-    
-        // enable pinch and rotate recognizers 
-        hammertime.get('pinch').set({ enable: true });
-        hammertime.get('rotate').set({ enable: true });
+
+        // Enable pinch and rotate recognizers (disabled by default)
+        pinchHammer.get('pinch').set({ enable: true });
+        rotateHammer.get('rotate').set({ enable: true });
         
-        // Enable vertical/all directions for pan and swipe recognizers
-        hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-        hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
-        
-        $(function() {
-            var rotateBox = document.getElementByID("rotate-box"),
-                pinchBox = document.getElementByID("pinch-box"),
-                pressBox = document.getElementByID("press-box"),
-                panBox = document.getElementByID("pan-box"),
-                tapBox = document.getElementByID("tap-box"),
-                swipeBox = document.getElementByID("swipe-box");
-            
-            // Rotate
-            Hammer(rotateBox).on("rotate", function(event) { // or e for event
-                $(this).css({
-                    'transition': 'rotate .5s',
-                    'transform': 'rotate 180deg'
-                });
-            };
+        // Enable vertical for pan recognizer
+        panHammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+        // Enable all directions for swipe recognizer
+        swipeHammer.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+   
+        // Rotate
+        Hammer(rotateBox).on("rotate", function(e) { // e for event
+            $("#rotate-box").css({
+                'transition': 'rotate .5s',
+                'transform': 'rotate 180deg'
+            });
+        };
             
             // Pinch
             // Press
