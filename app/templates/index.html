@@ -138,9 +138,11 @@
             
         // Swipe
         swipeHammer.on('swipeleft swiperight', function(e) {
+            $('#swipe-box').css('transition', 'translateX .06s');
             $('#swipe-box').css('transform', 'translateX(' + e.deltaX + 'px)');
         });
         swipeHammer.on('swipeup swipedown', function(e) {
+            $('#swipe-box').css('transition', 'translateY .06s');
             $('#swipe-box').css('transform', 'translateY(' + e.deltaY + 'px)');
         });
         
