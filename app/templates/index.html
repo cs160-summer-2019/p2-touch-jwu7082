@@ -16,6 +16,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="viewport" content="width=device-width, user-scalable=no" />
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
 
 	<style type="text/css">
 		body {
@@ -83,8 +84,55 @@
 			</div>
 		</div>
 	</div>
-	<script>
-	  // your solution here
+	<script> // your solution here
+        // Create instance and add tap, doubletap, press, horizontal pan/swipe recognizers
+        var hammertime = new Hammer(myElement, myOptions);
+        hammertime.on('pan', function(ev) {
+            console.log(ev);
+        });
+    
+        // enable pinch and rotate recognizers 
+        hammertime.get('pinch').set({ enable: true });
+        hammertime.get('rotate').set({ enable: true });
+        
+        // Enable vertical/all directions for pan and swipe recognizers
+        hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+        hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+        
+        $(function() {
+            var rotateBox = document.getElementByID("rotate-box"),
+                pinchBox = document.getElementByID("pinch-box"),
+                pressBox = document.getElementByID("press-box"),
+                panBox = document.getElementByID("pan-box"),
+                tapBox = document.getElementByID("tap-box"),
+                swipeBox = document.getElementByID("swipe-box");
+            
+            // Rotate
+            Hammer(rotateBox).on("rotate", function(event) { // or e for event
+                $(this).css({
+                    'transition': 'rotate .5s';
+                    'transform': 'rotate 180deg';
+                });
+            };
+            
+            // Pinch
+            // Press
+            // Pan
+            // Tap
+            
+            // Swipe
+//            Hammer(swipeBox).on("swipeleft swiperight", function(event) { // or e for event
+//                $(this).css({
+//                    "transform: translateX(event.deltaX);"
+//                });
+//            });
+//            Hammer(swipeBox).on("swipeup swipedown", function(event) {
+//                $(this).css({
+//                    "transform: translateY(event.deltaY);"
+//                });
+//            });  
+//        });
+        
   </script>
 </body>
 </html>
