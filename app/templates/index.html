@@ -90,6 +90,9 @@
         hammertime.on('pan', function(ev) {
             console.log(ev);
         });
+        hammertime.on('rotate', function(ev) {
+            console.log(ev);
+        });
     
         // enable pinch and rotate recognizers 
         hammertime.get('pinch').set({ enable: true });
