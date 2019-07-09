@@ -102,7 +102,7 @@
 
         // Enable pinch and rotate recognizers (disabled by default)
         pinchHammer.get('pinch').set({ enable: true });
-        rotateHammer.get('rotate').set({ enable: true });
+        rotateHammer.get('rotate').set({ enable: true, pointers: 1 });
         
         // Enable vertical for pan recognizer
         panHammer.get('pan').set({ direction: Hammer.DIRECTION_ALL, threshold: 0 });
@@ -127,7 +127,7 @@
         
         // Pan
         panHammer.on('pan', function(e) {
-            $('#pan-box').css('transition', 'transform .4s');
+            $('#pan-box').css('transition', 'transform .1s');
             $('#pan-box').css('transform', 'translate(' + e.deltaX + 'px, ' + e.deltaY + 'px)');
         });
         
@@ -137,7 +137,12 @@
         });
             
         // Swipe
-        
+        swipeHammer.on('swipeleft swiperight', function(e) {
+            $('#swipe-box').css('transform', 'translateX(' + e.deltaX + ')');
+        });
+        swipeHammer.on('swipeup swipedown', function(e) {
+            $('#swipe-box').css('transform', 'translateY(' + e.deltaY + ')');
+        });
 
 // This is pan, not swipe
 //        swipeHammer.on('swipeleft swiperight', function(e) {
