@@ -107,7 +107,7 @@
         // Enable vertical for pan recognizer
         panHammer.get('pan').set({ direction: Hammer.DIRECTION_ALL, threshold: 0 });
         // Enable all directions for swipe recognizer
-        swipeHammer.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+        swipeHammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
 
         /* ---------------- GESTURES ---------------- */ 
         // Rotate
@@ -143,15 +143,6 @@
         swipeHammer.on('swipeup swipedown', function(e) {
             $('#swipe-box').css('transform', 'translateY(' + e.deltaY + 'px)');
         });
-
-// This is pan, not swipe
-//        swipeHammer.on('swipeleft swiperight', function(e) {
-//            $('#swipe-box').css('transform', 'translateX(' + e.deltaX + ')');
-//        });
-//        swipeHammer.on('swipeup swipedown', function(e) {
-//            $('#swipe-box').css('transform', 'translateY(' + e.deltaY + ')');
-//        });
-        
         
   </script>
 </body>
