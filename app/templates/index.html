@@ -99,7 +99,6 @@
             panHammer = new Hammer(panBox),
             tapHammer = new Hammer(tapBox),
             swipeHammer = new Hammer(swipeBox);
-        var hammertime = new Hammer(myElement, myOptions);
 
         // Enable pinch and rotate recognizers (disabled by default)
         pinchHammer.get('pinch').set({ enable: true });
@@ -111,12 +110,19 @@
         swipeHammer.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
    
         // Rotate
-        Hammer(rotateBox).on("rotate", function(e) { // e for event
-            $("#rotate-box").css({
-                'transition': 'rotate .5s',
-                'transform': 'rotate 180deg'
-            });
+        rotateHammer.on("rotate", function() { 
+//            $("#rotate-box").css({
+//                'transition': 'rotate .5s',
+//                'transform': 'rotate 180deg'
+//            });
+            $("#rotate-box").style.backgroundColor = "red";
         };
+//        Hammer(rotateBox).get('rotate').set({ enable: true }).on("rotate", function(e) { // e for event
+//            $("#rotate-box").css({
+//                'transition': 'rotate .5s',
+//                'transform': 'rotate 180deg'
+//            });
+//        };
             
             // Pinch
             // Press
