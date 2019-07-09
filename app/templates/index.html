@@ -108,41 +108,44 @@
         panHammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
         // Enable all directions for swipe recognizer
         swipeHammer.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
-   
-        // Rotate
-        rotateHammer.on("rotate", function() { 
-            $("#rotate-box").css({
-                'transition': 'rotate 2s',
-                'transform': 'rotate(' + rotation + ')'
-            });
-        });
-//        Hammer(rotateBox).get('rotate').set({ enable: true }).on("rotate", function(e) { // e for event
-//            $("#rotate-box").css({
-//                'transition': 'rotate .5s',
-//                'transform': 'rotate 180deg'
-//            });
-//        };
 
-            // Pinch
-            // Press
-            // Pan
-            // Tap
+        /* ---------------- GESTURES ---------------- */ 
+        // Rotate
+        rotateHammer.on('rotate', function(e) { // e for event
+            $('#rotate-box').css('transform', 'rotate(' + e.rotation + 'deg)');
+        });
+
+        // Pinch
+        pinchHammer.on('pinch', function(e) {
+            $('#pinch-box').css('transform', 'scale(' + e.scale + ')');
+        });
+        
+        // Press
+        pressHammer.on('press', function(e) {
+            
+        });
+        
+        // Pan
+        panHammer.on('pan', function(e) {
+            $('pan-box').css('transform', 'translate(' + e.deltaX 'px, ' + e.deltaY + 'px)');
+        });
+        
+        // Tap
         tapHammer.on("tap", function() {
             $("#tap-box").css('background-color', 'red');
         });
             
-            // Swipe
-//            Hammer(swipeBox).on("swipeleft swiperight", function(event) { // or e for event
-//                $(this).css({
-//                    "transform: translateX(event.deltaX);"
-//                });
-//            });
-//            Hammer(swipeBox).on("swipeup swipedown", function(event) {
-//                $(this).css({
-//                    "transform: translateY(event.deltaY);"
-//                });
-//            });  
+        // Swipe
+        
+
+// This is pan, not swipe
+//        swipeHammer.on('swipeleft swiperight', function(e) {
+//            $('#swipe-box').css('transform', 'translateX(' + e.deltaX + ')');
 //        });
+//        swipeHammer.on('swipeup swipedown', function(e) {
+//            $('#swipe-box').css('transform', 'translateY(' + e.deltaY + ')');
+//        });
+        
         
   </script>
 </body>
