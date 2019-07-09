@@ -127,7 +127,7 @@
         
         // Pan
         panHammer.on('pan', function(e) {
-            $('#pan-box').css('transition', 'transform .01s');
+            $('#pan-box').css('transition', 'transform .06s');
             $('#pan-box').css('transform', 'translate(' + e.deltaX + 'px, ' + e.deltaY + 'px)');
         });
         
@@ -138,10 +138,10 @@
             
         // Swipe
         swipeHammer.on('swipeleft swiperight', function(e) {
-            $('#swipe-box').css('transform', 'translateX(' + e.deltaX + ')');
+            $('#swipe-box').css('transform', 'translateX(' + e.deltaX + 'px)');
         });
         swipeHammer.on('swipeup swipedown', function(e) {
-            $('#swipe-box').css('transform', 'translateY(' + e.deltaY + ')');
+            $('#swipe-box').css('transform', 'translateY(' + e.deltaY + 'px)');
         });
 
 // This is pan, not swipe
