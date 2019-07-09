@@ -127,6 +127,7 @@
         
         // Pan
         panHammer.on('pan', function(e) {
+            $('#pan-box').css('transition', 'transform .4s');
             $('#pan-box').css('transform', 'translate(' + e.deltaX + 'px, ' + e.deltaY + 'px)');
         });
         
