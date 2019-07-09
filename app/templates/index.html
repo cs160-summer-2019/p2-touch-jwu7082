@@ -105,7 +105,7 @@
         rotateHammer.get('rotate').set({ enable: true });
         
         // Enable vertical for pan recognizer
-        panHammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+        panHammer.get('pan').set({ direction: Hammer.DIRECTION_ALL, threshold: 0 });
         // Enable all directions for swipe recognizer
         swipeHammer.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
 
