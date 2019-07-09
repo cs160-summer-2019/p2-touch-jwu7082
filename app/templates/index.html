@@ -111,10 +111,10 @@
    
         // Rotate
         rotateHammer.on("rotate", function() { 
-//            $("#rotate-box").css({
-//                'transition': 'rotate .5s',
-//                'transform': 'rotate 180deg'
-//            });
+            $("#rotate-box").css({
+                'transition': 'rotate 2s',
+                'transform': 'rotate(' + rotation + ')'
+            });
         });
 //        Hammer(rotateBox).get('rotate').set({ enable: true }).on("rotate", function(e) { // e for event
 //            $("#rotate-box").css({
