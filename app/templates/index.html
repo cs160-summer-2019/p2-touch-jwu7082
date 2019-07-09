@@ -115,7 +115,6 @@
 //                'transition': 'rotate .5s',
 //                'transform': 'rotate 180deg'
 //            });
-            rotateBox.style.backgroundColor = "red";
         };
 //        Hammer(rotateBox).get('rotate').set({ enable: true }).on("rotate", function(e) { // e for event
 //            $("#rotate-box").css({
@@ -123,11 +122,14 @@
 //                'transform': 'rotate 180deg'
 //            });
 //        };
-            
+
             // Pinch
             // Press
             // Pan
             // Tap
+        tapHammer.on("tap", function() {
+            $("#tap-box").css('background-color', 'red');
+        })
             
             // Swipe
 //            Hammer(swipeBox).on("swipeleft swiperight", function(event) { // or e for event
